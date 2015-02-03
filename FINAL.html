@@ -1,0 +1,74 @@
+Content-Type: text/html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<html>
+<head>
+<title>DISCOVER your Election!</title>
+</head>
+
+<body>
+
+<div id="chartContainer" style="position:absolute; height:600px; width:100%;"></div>
+
+<div id="container" style="position:absolute; height:650px; width:85%; left:15%; top:0px; display:none; overflow:auto">
+	<div id="transparent" style="background-color:#527A7A; position:absolute; opacity:0.3; width:940px; height:620px; top:0px; left:0px">
+	</div>
+
+	<div style="position:absolute; top:-10px; left:0px">
+	<img id="banner" width="0px">
+	</div>
+
+	<div style="position:absolute; top:14px; left:40px">
+	<img id="back" style="display:none" src="images/backWHITE.png" onclick="goBack()">
+	</div>
+
+	<div id="trends" style="position:absolute; width:500px; height:300px; left:0px; top:80px;"></div>
+
+	<div id="labor_twitter" style="position:absolute; width:420px; height:300px; left:500px; top:90px; display:none"><a class="twitter-timeline" width="420px" height="300px" href="https://twitter.com/search?q=%23labor+OR+labor+%23auspol+OR+auspol" data-widget-id="379825195411701760">Tweets about "#labor OR labor #auspol OR auspol"</a></div>
+
+	<div id="liberal_twitter" style="position:absolute; width:420px; height:300px; left:500px; top:90px; display:none"><a class="twitter-timeline" width="420px" height="300px" href="https://twitter.com/search?q=%23liberal+OR+liberal+auspol+OR+%23auspol" data-widget-id="381929385609023488">Tweets about "#liberal OR liberal auspol OR #auspol"</a></div>
+
+	<div id="greens_twitter" style="position:absolute; width:420px; height:300px; left:500px; top:90px; display:none"><a class="twitter-timeline" width="420px" height="300px" href="https://twitter.com/search?q=%23greens+%23auspol" data-widget-id="389359238801145856">Tweets about "#greens #auspol"</a></div>
+
+	<div id="labor_twitter_a" style="position:absolute; width:450px; height:520px; left:480px; top:90px; display:none"><a class="twitter-timeline" width="450px" height="520px" href="https://twitter.com/search?q=%23labor+OR+labor+%23asylum+OR+asylum+%23seekers+OR+seekers" data-widget-id="391639452843380736">Tweets about "#labor OR labor #asylum OR asylum #seekers OR seekers"</a></div>
+
+	<div id="labor_twitter_e" style="position:absolute; width:450px; height:520px; left:480px; top:90px; display:none"><a class="twitter-timeline" width="450px" height="520px" href="https://twitter.com/search?q=%23labor+OR+labor+%23education+OR+education" data-widget-id="391640274364952576">Tweets about "#labor OR labor #education OR education"</a></div>
+
+	<div id="labor_twitter_b" style="position:absolute; width:450px; height:520px; left:480px; top:90px; display:none"><a class="twitter-timeline" width="450px" height="520px" href="https://twitter.com/search?q=%23labor+OR+labor+%23broadband+OR+broadband" data-widget-id="391646543268171776">Tweets about "#labor OR labor #broadband OR broadband"</a></div>
+
+	<div id="labor_twitter_m" style="position:absolute; width:450px; height:520px; left:480px; top:90px; display:none"><a class="twitter-timeline" width="450px" height="520px" href="https://twitter.com/search?q=%23labor+OR+labor+%23marriage+OR+marriage+%23same-sex+OR+same-sex" data-widget-id="391641437302837249">Tweets about "#labor OR labor #marriage OR marriage #same-sex OR same-sex"</a></div>
+
+	<div id="liberal_twitter_a" style="position:absolute; width:450px; height:520px; left:480px; top:90px; display:none"><a class="twitter-timeline" width="450px" height="520px" href="https://twitter.com/search?q=%23liberal+OR+liberal+%23asylum+OR+asylum+%23seekers+OR+seekers" data-widget-id="391700226353803264">Tweets about "#liberal OR liberal #asylum OR asylum #seekers OR seekers"</a></div>
+
+	<div id="liberal_twitter_e" style="position:absolute; width:450px; height:520px; left:480px; top:90px; display:none"><a class="twitter-timeline" width="450px" height="520px" href="https://twitter.com/search?q=%23liberal+OR+liberal+%23education+OR+education" data-widget-id="391700492486582272">Tweets about "#liberal OR liberal #education OR education"</a></div>
+
+	<div id="liberal_twitter_b" style="position:absolute; width:450px; height:520px; left:480px; top:90px; display:none"><a class="twitter-timeline" width="450px" height="520px" href="https://twitter.com/search?q=%23liberal+OR+liberal+%23broadband+OR+broadband" data-widget-id="391700889456484353">Tweets about "#liberal OR liberal #broadband OR broadband"</a></div>
+
+	<div id="liberal_twitter_m" style="position:absolute; width:450px; height:520px; left:480px; top:90px; display:none"><a class="twitter-timeline" width="450px" height="520px" href="https://twitter.com/search?q=%23liberal+OR+liberal+%23marriage+OR+marriage+%23same-sex+OR+same-sex" data-widget-id="391701143564201984">Tweets about "#liberal OR liberal #marriage OR marriage #same-sex OR same-sex"</a></div>
+
+	<div id="greens_twitter_a" style="position:absolute; width:450px; height:520px; left:480px; top:90px; display:none"><a class="twitter-timeline" width="450px" height="520px" href="https://twitter.com/search?q=%23greens+OR+greens+%23asylum+OR+asylum+%23seekers+OR+seekers" data-widget-id="391701519235432448">Tweets about "#greens OR greens #asylum OR asylum #seekers OR seekers"</a></div>
+
+	<div id="greens_twitter_e" style="position:absolute; width:450px; height:520px; left:480px; top:90px; display:none"><a class="twitter-timeline" width="450px" height="520px" href="https://twitter.com/search?q=%23greens+OR+greens+%23education+OR+education" data-widget-id="391701787763175424">Tweets about "#greens OR greens #education OR education"</a></div>
+
+	<div id="greens_twitter_b" style="position:absolute; width:450px; height:520px; left:480px; top:90px; display:none"><a class="twitter-timeline" width="450px" height="520px" href="https://twitter.com/search?q=%23greens+OR+greens+%23broadband+OR+broadband" data-widget-id="391701971226226688">Tweets about "#greens OR greens #broadband OR broadband"</a></div>
+
+	<div id="greens_twitter_m" style="position:absolute; width:450px; height:520px; left:480px; top:90px; display:none"><a class="twitter-timeline" width="450px" height="520px" href="https://twitter.com/search?q=%23greens+OR+greens+%23marriage+OR+marriage+%23same-sex+OR+same-sex" data-widget-id="391702242161467392">Tweets about "#greens OR greens #marriage OR marriage #same-sex OR same-sex"</a></div>
+
+	<div id="youtube" style="background-color:#FFFFFF; position:absolute; width:400px; opacity:0.8; height:235px; left:10px; top:375px; overflow:auto"></div>
+
+	<div id="issues" style="background-color:#FFFFFF; position:absolute; width:500px; height:210px; opacity:0.8; left:420px; top:400px; overflow:auto"></div>
+</div>
+</body>
+<script src="javascript/canvasjs.min.js"></script>
+<script src="javascript/pieChart.js"></script>
+<script src="javascript/back.js"></script>
+<script src="javascript/twitter.js"></script>
+<script src="javascript/partiesPage.js"></script>
+<script src="javascript/issuesPage.js"></script>
+<script src="javascript/issuesInfo.js"></script>
+<script src="javascript/youtube.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+</html>
+

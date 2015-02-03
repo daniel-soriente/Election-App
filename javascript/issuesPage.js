@@ -1,0 +1,89 @@
+var issuePartyShowing;
+var issueShowing;
+
+function showIssue(issue,party) {
+	setIssueParty(party);
+	setIssue(issue);
+	
+	$(document.getElementById("banner")).animate({width:"0px"}, "slow");
+	$(document.getElementById("back")).fadeOut("slow");
+	$(document.getElementById("trends")).fadeOut("slow");
+	$(document.getElementById(getTwitter())).slideUp("slow"); 
+	
+	setIssueView();
+	
+	$(document.getElementById("banner")).animate({width:"940px"}, "slow");
+	setTimeout(function(){$(document.getElementById("issues")).animate({left:"10px", top:"90px", width:"450px", height:"470px"}, "slow");
+	$(document.getElementById("back")).fadeIn("slow");
+	$(document.getElementById("youtube")).animate({top:"560px", width:"450px", height:"50px"}, "slow");
+	$(document.getElementById(getTwitter())).slideDown("slow")}, 500);
+}
+
+function setIssueParty(party) {
+	issuePartyShowing = party;
+	setBack(issuePartyShowing);
+}
+
+function setIssue(issue) {
+	issueShowing = issue;
+}
+
+function getIssueParty() {
+	return issuePartyShowing;
+}
+
+function getIssue() {
+	return issueShowing;
+}
+
+function getInfo(issue,party) {
+	if (party == "labor") {
+		var index = 0;
+	} else if (party == "liberal") {
+		var index = 1;
+	} else if (party == "greens") {
+		var index = 2;
+	}
+	
+	if (issue == "a") {
+		return a[index];
+	} else if (issue == "e") {
+		return e[index];
+	} else if (issue == "b") {
+		return b[index];
+	} else if (issue == "m") {
+		return m[index];
+	}
+}
+
+function setIssueView() {
+	var text = "<font face=\"Trebuchet MS\" size=\"2\"><h2><center>"+getInfo(issueShowing, issuePartyShowing)+"</center></h2></font>";
+	if (issuePartyShowing == "labor") {
+		var buttons = "<div style='position:absolute; left:5px; width:445px; height:50px'><img src='images/greens-button.jpg' onclick=switchIssue('greens')><img src='images/liberal-button.jpg' onclick=switchIssue('liberal')></div>";
+	} else if (issuePartyShowing == "liberal") {
+		var buttons = "<div style='position:absolute; left:5px; width:445px; height:50px'><img src='images/labor-button.jpg' onclick=switchIssue('labor')><img src='images/greens-button.jpg' onclick=switchIssue('greens')></div>";
+	} else if (issuePartyShowing == "greens") {
+		var buttons = "<div style='position:absolute; left:5px; width:445px; height:50px'><img src='images/liberal-button.jpg' onclick=switchIssue('liberal')><img src='images/labor-button.jpg' onclick=switchIssue('labor')></div>";
+	}
+	
+	setTimeout(function(){document.getElementById("banner").src = "images/"+issuePartyShowing+"-"+issueShowing+".png"}, 500);
+	setTwitter(issuePartyShowing + "_twitter_" + issueShowing);
+	setTimeout(function(){document.getElementById("issues").innerHTML = text; document.getElementById("youtube").innerHTML = buttons}, 500);
+}
+
+function switchIssue(party) {
+	$(document.getElementById("issues")).slideUp("slow");
+	$(document.getElementById("youtube")).slideUp("slow");
+	$(document.getElementById(getTwitter())).slideUp("slow");
+	$(document.getElementById("back")).fadeOut("slow");
+	$(document.getElementById("banner")).animate({width:"0px"});
+	
+	setIssueParty(party);
+	setTimeout(setIssueView(), 500);
+	
+	setTimeout(function(){$(document.getElementById("banner")).animate({width:"940px"});
+	$(document.getElementById("back")).fadeIn("slow");
+	$(document.getElementById(getTwitter())).slideDown("slow");
+	$(document.getElementById("youtube")).slideDown("slow");
+	$(document.getElementById("issues")).slideDown("slow")}, 700);
+}

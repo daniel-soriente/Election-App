@@ -1,0 +1,45 @@
+/*
+What do these numbers mean?
+<p><small>Taken from the Australian Electoral Commission website:<br>
+A candidate is considered as the leader if the candidate has won the seat on first preferences or the following conditions are met; more than 5.00% of TCP has been counted and the candidate is leading on TCP votes.
+An indication that a party is leading a seat is no guarantee that a different result will not be reached upon completion of the count of all votes.
+A leader cannot be determined for a seat when no candidate has won the seat on first preferences and any of the following conditions are met; less than 5.00% of TCP has been counted or the seats is tied on TCP votes.
+These results are not final.
+</p></small>
+*/
+
+var back;
+
+function setBack(section) {
+	back = section;	
+}
+
+function goBack() {
+	if (back == "exit") {
+		backToChart();
+	} else if (back == "labor" || back == "liberal" || back == "greens") {
+		backToParty();
+	}
+}
+
+function backToParty() {
+	
+	$(document.getElementById("issues")).fadeOut("slow");
+	$(document.getElementById("youtube")).fadeOut("slow");
+	$(document.getElementById(getTwitter())).slideUp("slow");
+	$(document.getElementById("back")).fadeOut("slow");
+	$(document.getElementById("banner")).animate({width:"0px"});
+	
+	setTimeout(function(){document.getElementById("issues").style.width = "500px"; document.getElementById("issues").style.height = "210px"; document.getElementById("issues").style.left = "420px"; document.getElementById("issues").style.top = "400px"; document.getElementById("youtube").style.width = "400px"; document.getElementById("youtube").style.height = "235px"; document.getElementById("youtube").style.left = "10px"; document.getElementById("youtube").style.top = "375px"; showParty(back)}, 500);
+}
+
+function backToChart() {
+	$(document.getElementById("issues")).fadeOut("slow");
+	$(document.getElementById("youtube")).fadeOut("slow");
+	$(document.getElementById(twitterShowing)).fadeOut("slow");
+	$(document.getElementById("trends")).fadeOut("slow");
+	$(document.getElementById("back")).fadeOut("slow");
+	$(document.getElementById("banner")).animate({width:"0px"});
+	$(document.getElementById("container")).fadeOut();
+	$(document.getElementById("chartContainer")).fadeIn();
+}
